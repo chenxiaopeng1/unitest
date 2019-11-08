@@ -39,7 +39,7 @@ class GetData:
 
     def get_data(self,row):
         col=data_config.get_data()
-        data=self.oprateExcel.get_cell_Data(self.sheetName,row,col)
+        data=self.oprateExcel.get_cell_Data(self.sheetName,row,col).strip()
         return data
 
     def get_expect_result(self,row):
@@ -57,8 +57,8 @@ class GetData:
     def get_depend_key(self,row):
         col=data_config.get_keyValue_depend()
         depend_key=self.oprateExcel.get_cell_Data(self.sheetName,row,col)
-        if depend_key=='':
-            return None
+        if depend_key=='' or depend_key==None:
+            return
         else:
             return depend_key
 
@@ -75,6 +75,9 @@ class GetData:
         #return depend_case
         return caseID
 
+    def getRowData(self,row):
+        row_data=self.oprateExcel.getRowVelue_by_rowNum(row)
+        return row_data
     '''
     #返回关联字段
     def get_depend_field(self,row):

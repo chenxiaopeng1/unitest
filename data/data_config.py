@@ -16,7 +16,7 @@ class global_var():
     iscorrect = 11
 
 def get_filepath():
-    filepath='/Users/macbookair/Downloads/testcase.xlsx'
+    filepath='E:\\APItest\\unitest\\excel\\testcase.xlsx'
     return filepath
 
 def get_sheetName():

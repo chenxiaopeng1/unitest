@@ -50,14 +50,14 @@ class OperateExcel(object):
             write_data.save(self.filepath)
         except Exception as e:
             logging.error('Write sheet_value Fail...')
-            logging(e)
+            #logging(e)
 
 
     #根据caseID找到相关的行号index ,行号=index+1
     def find_rows_by_ID(self,caseID):
         cols_data=self.data.sheet_by_name(data_config.get_sheetName()).col_values(data_config.get_id())
         rowNum=cols_data.index(caseID)
-        print('rowNum=',rowNum)
+        #print('rowNum=',rowNum)
         return rowNum
 
 
@@ -89,6 +89,6 @@ class OperateExcel(object):
 if __name__=='__main__':
     op=OperateExcel(data_config.get_filepath())
     print(type(op.get_lines(data_config.get_sheetName())))
-    op.getRowVelue_by_rowNum(5)
-    op.find_rows_by_ID('网站登陆1')
+    op.getRowVelue_by_rowNum(3)
+    op.find_rows_by_ID('用例1')
     #print(op.get_cell_Data(data_config.get_sheetName(),3,8))
